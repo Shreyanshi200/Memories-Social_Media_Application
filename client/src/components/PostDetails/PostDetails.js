@@ -21,9 +21,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import {
   getPost,
   getPostsBySearch,
-  selectAll,
-  selectById,
-  selectEntities,
+  selectAllPosts,
   selectIds,
   selectTotal,
   update,
@@ -69,7 +67,7 @@ const PostDetails = () => {
 
   const { isOpen } = useSelector((store) => store.modal);
 
-  const posts = useSelector((store) => selectAll(store));
+  const posts = useSelector((store) => selectAllPosts(store));
   // console.log("posts", posts);
   // const selectByIds = useSelector((store) => selectById(store, post._id));
   // const selectTotals = useSelector((store) => selectTotal(store));
@@ -90,7 +88,7 @@ const PostDetails = () => {
   const hasLikedPost = post?.likes?.find((like) => like === userId);
 
   const handleLike = async () => {
-    // console.log("handlelike", post);
+    console.log("handlelike", post);
     const data = await likePost(post?.id);
     // console.log("data", data);
     dispatch(update(data));
@@ -118,7 +116,7 @@ const PostDetails = () => {
   if (!post) return null;
 
   const recommendedPosts = posts?.filter(({ id }) => id !== post?.id);
-  // console.log("recommendedPosts", recommendedPosts);
+  console.log("recommendedPosts", recommendedPosts);
 
   return detailsLoading ? (
     <Grid

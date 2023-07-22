@@ -3,19 +3,18 @@ import Post from "./Post/Post";
 import { useSelector } from "react-redux";
 import { Grid, Skeleton } from "@mui/material";
 import Errorhandler from "../Errorhandler";
-import { useGetPostsQuery } from "../../features/apiSlice";
-import { selectAll } from "../../features/posts/postsSlice";
+import { selectAll, selectPostIds } from "../../features/posts/postsSlice";
 
-function Posts({ setCurrentId, page, queryRes }) {
-  // const { isLoading, error } = useSelector((store) => store.posts);
+function Posts({ setCurrentId, page }) {
+  const { isLoading, error } = useSelector((store) => store.posts);
   // console.log("error", error);
-  const { data, error, isLoading, isFetching } = queryRes;
+  // const { data, error, isLoading, isFetching } = queryRes;
   // console.log("data", data);
   // console.log("error", error);
   // console.log("isLoading", isLoading);
-  const posts = data?.data;
-  // const posts = useSelector((store) => selectAll(store));
-  return isLoading || isFetching ? (
+  // const posts = data?.data;
+  const postIds = useSelector((store) => selectPostIds(store));
+  return isLoading ? (
     <Grid container alignItems="stretch" spacing={3}>
       {[...Array(8)].map((item, index) => (
         <Grid
@@ -39,9 +38,9 @@ function Posts({ setCurrentId, page, queryRes }) {
     </Grid>
   ) : !error ? (
     <Grid container alignItems="stretch" spacing={3}>
-      {posts?.map((post) => (
+      {postIds?.map((postId) => (
         <Grid
-          key={post._id}
+          key={postId}
           item
           xs={12}
           sm={12}
@@ -49,7 +48,7 @@ function Posts({ setCurrentId, page, queryRes }) {
           lg={3}
           sx={{ justifyContent: { sm: "flex-start" } }}
         >
-          <Post post={post} setCurrentId={setCurrentId} />
+          <Post postId={postId} setCurrentId={setCurrentId} />
         </Grid>
       ))}
     </Grid>

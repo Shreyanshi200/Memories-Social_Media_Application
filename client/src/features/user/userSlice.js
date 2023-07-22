@@ -29,28 +29,7 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    // clearAll: (state, action) => {
-    //   state.posts = [];
-    // },
-    // create: (state, action) => {
-    //   console.log("action", action.payload);
-    //   state.posts = [...state.posts, action.payload];
-    // },
-    // update: (state, action) => {
-    //   state.posts = state.posts.map((post) =>
-    //     post._id === action.payload._id ? action.payload : post
-    //   );
-    // },
-    // remove: (state, action) => {
-    //   state.posts = state.posts.filter(
-    //     (post) => post._id !== action.payload._id
-    //   );
-    // },
-    // like: (state, action) => {
-    //   state.posts = state.posts.map((post) =>
-    //     post._id === action.payload._id ? action.payload : post
-    //   );
-    // },
+    
   },
   extraReducers: {
     [getUser.pending]: (state, action) => {
@@ -72,6 +51,5 @@ const userSlice = createSlice({
   },
 });
 
-// export const { fetchAll, create, update, remove, like } = userSlice.actions;
 
 export default userSlice.reducer;

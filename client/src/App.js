@@ -9,6 +9,7 @@ import {
 import { Navbar, Home, Auth, PostDetails, UserDetails } from "./components";
 import Layout from "./components/Layout/Layout";
 
+
 const App = () => {
   const user = JSON.parse(localStorage.getItem("profile"));
 

@@ -14,7 +14,7 @@ const root = createRoot(document.getElementById("root"));
 
 root.render(
   <Provider store={store}>
-    <GoogleOAuthProvider clientId="550802222960-ms0cmmoqc54h5odgc5bsu6pl4hbm28uq.apps.googleusercontent.com">
+    <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_API_TOKEN }>
       {/* {console.log(
           "process.env.GOOGLE_API_TOKEN",
           process.env.REACT_APP_GOOGLE_API_TOKEN

@@ -6,6 +6,7 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
 
+// import { join, path } from "path";
 import postRoutes from "./routes/posts.js";
 import userRoutes from "./routes/user.js";
 
@@ -17,6 +18,13 @@ app.use(cors());
 
 app.use("/posts", postRoutes);
 app.use("/user", userRoutes);
+
+
+// app.use(Express.static(path.join(__dirname, './client/build')))
+// app.get("*",function(req,res){
+//   res.sendFile(path.join(__dirname, "./client/build/index.js"))
+// });
+
 
 const port = process.env.PORT || 5000;
 

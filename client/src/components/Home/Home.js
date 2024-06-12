@@ -15,14 +15,7 @@ import Modal from "../modal";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import {
-  getPosts,
   getPostsBySearch,
-  getPostsError,
-  selectAll,
-  selectById,
-  selectEntities,
-  selectIds,
-  selectTotal,
 } from "../../features/posts/postsSlice";
 import Page from "../Page/Page";
 import { toast } from "react-toastify";
@@ -136,7 +129,7 @@ const Home = () => {
             spacing={3}
             wrap="wrap-reverse"
           >
-            <Grid item xs={12} sm={6} md={9}>
+            <Grid item xs={12} sm={6} md={9} lg ={9}>
               <Posts setCurrentId={setCurrentId} page={page} />
             </Grid>
             <Grid item xs={12} sm={6} md={3} sx={{ mt: { xs: "80px", sm: 0 } }}>

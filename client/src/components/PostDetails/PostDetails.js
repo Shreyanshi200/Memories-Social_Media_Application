@@ -38,10 +38,12 @@ import Form from "../Form/Form";
 import Skeleton from "@mui/material/Skeleton";
 dayjs.extend(relativeTime);
 
+
 const PostDetails = () => {
   const { isLoading, error, post, detailsLoading } = useSelector(
     (store) => store.posts
   );
+
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -116,7 +118,8 @@ const PostDetails = () => {
   if (!post) return null;
 
   const recommendedPosts = posts?.filter(({ id }) => id !== post?.id);
-  console.log("recommendedPosts", recommendedPosts);
+  // console.log("recommendedPosts", recommendedPosts);
+
 
   return detailsLoading ? (
     <Grid
@@ -195,7 +198,7 @@ const PostDetails = () => {
                     {post?.tags?.map((tag, index) => (
                       <Link
                         key={index}
-                        to={`/tags/${tag}`}
+                        to={`/posts/search?searchQuery="none"&tags=${tag}`}
                         style={{ textDecoration: "none", color: "#3f51b5" }}
                       >
                         {` #${tag} `}

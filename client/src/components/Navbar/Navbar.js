@@ -14,12 +14,11 @@ import {
   import memoriesLogo from "../../images/memories-Logo.png";
   import memoriesText from "../../images/memories-Text.png";
   import useMediaQuery from "@mui/material/useMediaQuery";
-  
   import { styled } from "@mui/material/styles";
   import Badge from "@mui/material/Badge";
   import { Link, useLocation, useNavigate } from "react-router-dom";
   import jwt_decode from "jwt-decode";
-  import { useDispatch, useSelector } from "react-redux";
+  import { useDispatch} from "react-redux";
   import { LogOut } from "../../features/auth/authSlice";
   const Navbar = () => {
     const navigate = useNavigate();

@@ -1,9 +1,11 @@
 import { Typography, Paper, Container,Grid ,Box, Grow} from "@mui/material";
 
 import { useParams} from "react-router-dom";
+// import Post from "./Post/Post";
 import {
   getUser
 } from "../../features/user/userSlice";
+import { toast } from "react-toastify";
 import { useSelector, useDispatch } from "react-redux";
 import React , { useEffect } from "react";
 import Errorhandler from "../Errorhandler";
@@ -15,17 +17,22 @@ const UserDetails = () => {
   const {user, isLoading, error } = useSelector(
     (store) => store.user
   );
+  
   const { id } = useParams();
   const dispatch = useDispatch();
 
 
   useEffect(() => {
-    dispatch(getUser(id));
+    try {
+      dispatch(getUser(id));
+    } catch (error) {
+      console.log(error);
+    }
+    
   }, [id]);
-console.log(user);
-const {name,email}=user;
-  // const {data} = user;
-  // console.log(user.name)
+// console.log(user);
+// const {name,email}=user.data;
+//   console.log(name)
 
    return !error?
   (
@@ -42,14 +49,15 @@ const {name,email}=user;
       </Typography>
       <Box sx={{ marginBottom: 1 }}>
         <Typography variant="h6">Name:</Typography>
-        <Typography variant="body1">{name}</Typography>
+        <Typography variant="body1">{user?.name}</Typography>
       </Box>
       <Box sx={{ marginBottom: 1 }}>
         <Typography variant="h6">Email:</Typography>
-        <Typography variant="body1">{email}</Typography>
+        <Typography variant="body1">{user?.email}</Typography>
       </Box>
     </Box>
   ):(<Errorhandler/>);
+  
 };
 
 export default UserDetails;

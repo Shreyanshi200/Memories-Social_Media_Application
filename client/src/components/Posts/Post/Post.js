@@ -11,8 +11,6 @@ import {
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import * as dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import ThumbUpIcon from "@mui/icons-material/ThumbUp";
-import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useDispatch, useSelector } from "react-redux";
 import { openModal } from "../../../features/modal/modalSlice";
@@ -58,37 +56,7 @@ const Post = ({ postId, setCurrentId }) => {
     navigate(`/posts/${post.id}`);
   };
 
-  // const { authData } = useSelector((store) => store.auth);
-
-  // useEffect(() => {
-  //   setUser(JSON.parse(localStorage.getItem("profile")));
-  // }, [authData]);
-
-  // const Likes = () => {
-  //   if (post.likes.length > 0) {
-  //     return post.likes.find((like) => like === userId) ? (
-  //       <>
-  //         <ThumbUpIcon fontSize="small" sx={{ mr: "4px" }} />
-  //         &nbsp;
-  //         {post.likes.length > 2
-  //           ? `You and ${post.likes.length - 1} others`
-  //           : `${post.likes.length} like${post.likes.length > 1 ? "s" : ""}`}
-  //       </>
-  //     ) : (
-  //       <>
-  //         <ThumbUpOffAltIcon fontSize="small" />
-  //         &nbsp;{post.likes.length} {post.likes.length === 1 ? "Like" : "Likes"}
-  //       </>
-  //     );
-  //   }
-  //   return (
-  //     <>
-  //       <ThumbUpOffAltIcon fontSize="small" />
-  //       &nbsp;Like
-  //     </>
-  //   );
-  // };
-
+  
   return (
     <Card
       className="card"
@@ -143,27 +111,6 @@ const Post = ({ postId, setCurrentId }) => {
             {dayjs(post.createdAt).fromNow()}
           </Typography>
         </div>
-        {/* {(post?.creator === user?.result?.sub ||
-          post?.creator === user?.result?._id) && (
-          <div
-            style={{
-              position: "absolute",
-              top: "20px",
-              right: "20px",
-              color: "white",
-            }}
-          >
-            <Button
-              style={{ color: "white" }}
-              size="small"
-              onClick={(e) => {
-                setCurrentId({ id: post._id, name: "update" });
-              }}
-            >
-              <MoreHorizIcon fontSize="medium" />
-            </Button>
-          </div>
-        )} */}
         <div
           style={{
             display: "flex",

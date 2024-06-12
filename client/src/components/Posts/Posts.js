@@ -3,7 +3,7 @@ import Post from "./Post/Post";
 import { useSelector } from "react-redux";
 import { Grid, Skeleton } from "@mui/material";
 import Errorhandler from "../Errorhandler";
-import { selectAll, selectPostIds } from "../../features/posts/postsSlice";
+import { selectPostIds } from "../../features/posts/postsSlice";
 
 function Posts({ setCurrentId, page }) {
   const { isLoading, error } = useSelector((store) => store.posts);

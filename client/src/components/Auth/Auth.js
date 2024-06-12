@@ -11,7 +11,6 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import "./Auth.css";
 import { GoogleLogin } from "@react-oauth/google";
 import Input from "./Input";
-import jwt_decode from "jwt-decode";
 import { useDispatch } from "react-redux";
 import { LogIn } from "../../features/auth/authSlice";
 import { useNavigate } from "react-router-dom";

@@ -1,9 +1,8 @@
 import React from "react";
-import { likePost } from "../../../features/api";
-import { update } from "../../../features/posts/postsSlice";
+
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
-import { useDispatch } from "react-redux";
+
 
 const Likes = ({ likes, userId }) => {
   //   const dispatch = useDispatch();

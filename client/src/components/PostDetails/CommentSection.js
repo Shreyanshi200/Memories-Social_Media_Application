@@ -28,6 +28,7 @@ const CommentSection = ({ post, user }) => {
   }, [commentUpdated?.value]);
 
   const handleComment = async (e) => {
+
     e.preventDefault();
     if (commentUpdated.appear) {
       // console.log(commentUpdated);

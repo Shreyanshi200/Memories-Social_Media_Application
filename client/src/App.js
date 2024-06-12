@@ -24,7 +24,7 @@ const App = () => {
             <Route path="search" exact element={<Home />} />
             <Route path=":id" exact element={<PostDetails />} />
           </Route>
-
+         
           <Route
             path="/auth"
             exact

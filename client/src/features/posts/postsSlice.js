@@ -3,7 +3,6 @@ import {
   createAsyncThunk,
   createEntityAdapter,
 } from "@reduxjs/toolkit";
-import axios from "axios";
 import { fetchPosts, fetchPostsBySearch, fetchPost } from "../api";
 
 const url = "http://localhost:3001/posts";
@@ -93,7 +92,7 @@ const postsSlice = createSlice({
     },
     update: (state, action) => {
       state.detailsLoading = true;
-      console.log("actionLike", action.payload);
+      // console.log("actionLike", action.payload);
       // console.log("state.post", state.post);
 
       // state.posts = state.posts.map((post) =>
@@ -144,7 +143,7 @@ const postsSlice = createSlice({
         delete post._id;
         return post;
       });
-      console.log("loadedPosts", loadedPosts);
+      // console.log("loadedPosts", loadedPosts);
       postsAdapter.setAll(state, loadedPosts);
       state.currentPage = action.payload.currentPage;
       state.numberOfPages = action.payload.numberOfPages;
@@ -187,7 +186,7 @@ const postsSlice = createSlice({
     },
     [getPostsBySearch.fulfilled]: (state, action) => {
       state.isLoading = false;
-      console.log("getPostsBySearch", action.payload);
+      // console.log("getPostsBySearch", action.payload);
       // console.log("getPostsBySearchstate", state);
       const loadedPosts = action.payload.map((post) => {
         post.id = post._id;
@@ -214,8 +213,6 @@ export const { fetchAll, create, update, remove, like, addComment } =
 export const {
   selectAll: selectAllPosts,
   selectById: selectPostById,
-  selectTotal,
-  selectEntities,
   selectIds: selectPostIds,
 } = postsAdapter.getSelectors((state) => state.posts);
 

@@ -16,8 +16,8 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors(
   {
-    // origin:["https://"],
-    methods:["POST","GET"],
+    origin:["https://memories-social-media-application.vercel.app"],
+    methods:["POST","GET","PUT","DELETE"],
     credentials:true
   }
 ));
